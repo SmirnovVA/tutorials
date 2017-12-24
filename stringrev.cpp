@@ -9,8 +9,8 @@ void ReverseString(string inStr){
 	char tmp;
 	for(int i = 0; i < l/2; ++i){
 		tmp = inStr[i];
-		inStr[i] = inStr[l - i];
-		inStr[l - i] = tmp;
+		inStr[i] = inStr[l - i - 1];
+		inStr[l - i - 1] = tmp;
 	}
 }
 
