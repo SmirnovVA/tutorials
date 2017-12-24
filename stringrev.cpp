@@ -1,74 +1,58 @@
 #include <iostream>
 
+using namespace std;
+
 string firstInputString;
 string secondInputString;
 string thirdInputString;
 
-void ReverseString(string inStr){
-	int l = strlen(inStr);
+void ReverseString(string inStr) {
+	int l = inStr.length();
 	char tmp;
-	for(int i = 0; i < l/2; ++i){
+	for (int i = 0; i < l / 2; ++i) {
 		tmp = inStr[i];
 		inStr[i] = inStr[l - i - 1];
 		inStr[l - i - 1] = tmp;
 	}
 }
 
-void ReverseCharInWord(string inStr){
-	int l = strlen(inStr);
+void ReverseCharInWord(string inStr) {
+	int l = inStr.length();
 	char tmp;
 	int wStart = 0, wLen = 0;
-	for(int i = 0; i <= l; ++i){
-		if(inStr[i] == " " || i == l){
+	for (int i = 0; i <= l; ++i) {
+		if (inStr[i] == 0x32 || i == l) {
 			wLen = i - wStart;
-			for(int j = wStart; j < wStart + wLen/2; ++j){
+			for (int j = wStart; j < wStart + wLen / 2; ++j) {
 				tmp = inStr[j];
-				inStr[j] = inStr[(wStart + wLen) - j - 1]
-				inStr[(wStart + wLen) - j - 1] = tmp;
+				inStr[j] = inStr[(wStart + wLen) - (j - wStart) - 1];
+				inStr[(wStart + wLen) - (j - wStart) - 1] = tmp;
 			}
 			wStart = i + 1;
 		}
 	}
 }
 
-void ReverseWordsInString(string inStr){
-	int l = strlen(inStr);
-	string * tmp;
-	int wStart = 0, wEnd = 0, wNum = 0;
-	for(int i = 0; i <= l; ++i){
-		if(inStr[i] == " " || i == l){
-			wEnd = i - 1;
-			for(int j = wStart; j <= wEnd; ++j){
-				tmp[wNum][j - wStart] = inStr[j];
-			}
-			wStart = i + 1;
-			wNum = Wnum + 1;
-		}
-	}
-	wStart = 0;
-	for(i = 0; i < wNum; ++i){
-		l = strlen(tmp[i]);
-		for(j = 0; j < l; ++j){
-			inStr[wStart + j] = tmp[i][j];
-		}
-		inStr[wStart + l] = " ";
-		wStart = l + 1;
-	}
+void ReverseWordsInString(string inStr) {
+	ReverseString(inStr);
+	ReverseCharInWord(inStr);
 }
 
-int main(){
-	std.cout << "Put first string:";
-	std.cin >> firstInputString;
+int main() {
+	cout << "Put first string:";
+	cin >> firstInputString;
 	ReverseString(firstInputString);
-	std.cout << firstInputString;
-	std.cout << "Put second string:";
-	std.cin >> secondInputString;
-	ReverseCharInWord(secondInputString);	
-	std.cout << secondInputString;
-	std.cout << "Put second string:";
-	std.cin >> thirdInputString;
-	ReverseWordsInString(thirdInputString);	
-	std.cout << thirdInputString;
+	cout << firstInputString << endl;
+	cout << "Put second string:";
+	cin >> secondInputString;
+	ReverseCharInWord(secondInputString);
+	cout << secondInputString << endl;
+	cout << "Put second string:";
+	cin >> thirdInputString;
+	ReverseWordsInString(thirdInputString);
+	cout << thirdInputString << endl;
 	return 1;
 }
+
+
 
