@@ -17,14 +17,14 @@ void ReverseString(string inStr){
 void ReverseCharInWord(string inStr){
 	int l = strlen(inStr);
 	char tmp;
-	int wStart = 0, wEnd = 0;
+	int wStart = 0, wLen = 0;
 	for(int i = 0; i <= l; ++i){
 		if(inStr[i] == " " || i == l){
-			wEnd = i - 1;
-			for(int j = wStart; j <= wEnd; ++j){
+			wLen = i - wStart;
+			for(int j = wStart; j < wStart + wLen/2; ++j){
 				tmp = inStr[j];
-				inStr[j] = inStr[wEnd - j]
-				inStr[wEnd - j] = tmp;
+				inStr[j] = inStr[(wStart + wLen) - j - 1]
+				inStr[(wStart + wLen) - j - 1] = tmp;
 			}
 			wStart = i + 1;
 		}
