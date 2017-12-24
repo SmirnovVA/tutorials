@@ -25,8 +25,8 @@ void ReverseCharInWord(string inStr) {
 			wLen = i - wStart;
 			for (int j = wStart; j < wStart + wLen / 2; ++j) {
 				tmp = inStr[j];
-				inStr[j] = inStr[(wStart + wLen) - (j - wStart) - 1];
-				inStr[(wStart + wLen) - (j - wStart) - 1] = tmp;
+				inStr[j] = inStr[wStart + i - j - 1];
+				inStr[wStart + i - j - 1] = tmp;
 			}
 			wStart = i + 1;
 		}
