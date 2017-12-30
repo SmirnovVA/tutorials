@@ -45,8 +45,7 @@ bool axisOfSymmetry2(int x[n], int y[n]){// O(n)
 	if (y[minPoint] != y[maxPoint])	return false; // axis of symmetry doesn't exist	because 2 extreme points doesn't reflects to each other
 	else aos = (x[maxPoint] + x[minPoint])/2; //  x-value of axis
 	for(i = 0; i < n; i++){ //check if aos is suitable for other points		
-		if(setOfPoints.exist({2 * aos - x[i],y[i]})) continue;
-		else return false;
+		if(setOfPoints.find({2 * aos - x[i],y[i]}) == std::set::end) return false;
 	}
 	return true;
 }
