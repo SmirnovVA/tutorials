@@ -17,8 +17,8 @@ bool axisOfSymmetry(int x[n], int y[n]){
 		xMin = x[i];
 		if(xMin == aos) continue;// if point is on axis -> it reflects to itself -> go to next iteration
 		else{
-			if(xMin < aos) xMax = xMin + 2 * aos;// if point is left from aos -> pair is right from aos
-			else if(xMin > aos) xMax = xMin - 2 * aos; // if point is right from aos -> pair is left from aos
+			if(xMin < aos) xMax = xMin + 2 * (aos - xMin);// if point is left from aos -> pair is right from aos
+			else if(xMin > aos) xMax = xMin - 2 * (xMin - aos); // if point is right from aos -> pair is left from aos
 			for(j = 0; j < n; j++){
 				if(x[j] == xMax){
 					if(y[i] == y[j]) continue;// if pair was found -> if y-value equal go to next iteration
