@@ -3,14 +3,13 @@ bool isBracketsCorrect(inString inString){
 	for(int i = 0; i < inString.length(); i ++){
 		if(inString.at(i) == '{' || inString.at(i) == '[' || inString.at(i) == '(') brackets.push(inString.at(i));
 		if(inString.at(i) == '}' || inString.at(i) == ']' || inString.at(i) == ')') {
-			if(brackets.empty()){
-				return false;
-			}
-			if((inString.at(i) == '}' && brackets.top() != '{') ||
+			if(brackets.empty() || 
+			   (inString.at(i) == '}' && brackets.top() != '{') ||
 			   (inString.at(i) == ']' && brackets.top() != '[') ||
 			   (inString.at(i) == '(' && brackets.top() != ')')) return false
 			brackets.pop();
 		}
 	}
-	return true;
+	if(brackets.empty()) return true;
+	else return false;
 }
