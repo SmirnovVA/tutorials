@@ -1,15 +1,16 @@
-bool isBracketsCorrect(std::string inString){
-	int curlyBracket = 0, curlyToRound, curlyToSquare;
-	int roundBracket = 0, roundToCurly, roundToSquare;
-	int squareBracket = 0, squareToCurly, squareToRound;
+bool isBracketsCorrect(inString inString){
+	std::stack<char> brackets;
 	for(int i = 0; i < inString.length(); i ++){
-		if(std::string.at(i) == '{') curlyBracket++;
-		if(std::string.at(i) == '[') squareBracket++;
-		if(std::string.at(i) == '(') roundBracket++;
-		if(std::string.at(i) == '}') curlyBracket--;
-		if(std::string.at(i) == ']') squareBracket--;
-		if(std::string.at(i) == ')') roundBracket--;
+		if(inString.at(i) == '{' || inString.at(i) == '[' || inString.at(i) == '(') brackets.push(inString.at(i));
+		if(inString.at(i) == '}' || inString.at(i) == ']' || inString.at(i) == ')') {
+			if(brackets.empty()){
+				return false;
+			}
+			if((inString.at(i) == '}' && brackets.top() != '{') ||
+			   (inString.at(i) == ']' && brackets.top() != '[') ||
+			   (inString.at(i) == '(' && brackets.top() != ')')) return false
+			brackets.pop();
+		}
 	}
-	if(curlyBracket == roundBracket == squareBracket == 0) return true;
-	else return false;
+	return true;
 }
