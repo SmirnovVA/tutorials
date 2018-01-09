@@ -10,6 +10,5 @@ bool isBracketsCorrect(inString inString){
 			brackets.pop();
 		}
 	}
-	if(brackets.empty()) return true;
-	else return false;
+	return brackets.empty();
 }
