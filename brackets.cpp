@@ -4,7 +4,10 @@ bool isBracketsCorrect(srd::string inString){
 		if((inString.at(i) == '}' && brackets.top() != '{') ||
 		   (inString.at(i) == ']' && brackets.top() != '[') ||
 		   (inString.at(i) == ')' && brackets.top() != '(')) return false
-		else brackets.pop();
+		else{
+			brackets.pop();
+			continue;
+		}
 		brackets.push(inString.at(i))
 	}
 	return brackets.empty();
