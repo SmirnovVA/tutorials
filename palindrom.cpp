@@ -5,6 +5,5 @@ bool isPalindrom(std::string inString){
 		if(inString[i] != ' ') str1[i] = inString[i];
 		if(inString[inString.length() - i - 1] != ' ') str2[i] = inString[inString.length() - i - 1];
 	}
-	if(str1.compare(str2) == 0) return true;
-	else return false;
+	return (str1.compare(str2) == 0);
 }
