@@ -31,7 +31,7 @@ char * intRanges(int * array, int arraySize){
 	for(int i = 1; i < arraySize; i++){
 		if (array[i] == array[i - 1] + 1){
 			rangeE = array[i];
-			if(i=arraySize-1){
+			if(i == arraySize-1){
 				result = result + rangeS.ToStr() + "-" + rangeE.ToStr() + ",";
 			}
 		}
@@ -43,7 +43,3 @@ char * intRanges(int * array, int arraySize){
 	}
 	return result;
 }
-
-
-
-1 2 3 4 6 8 9 11 -> 
