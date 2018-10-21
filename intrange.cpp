@@ -26,7 +26,8 @@ int * sort(int * array, int arraySize){
 
 char * intRanges(int * array, int arraySize){
 	char * result = "";
-	int rangeS = array[0],rangeE;
+	int rangeS = array[0]
+	int rangeE = rangeS;
 	for(int i = 1; i < arraySize; i++){
 		if (array[i] == array[i - 1] + 1) rangeE = array[i];
 		else{
