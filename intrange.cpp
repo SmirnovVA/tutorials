@@ -29,12 +29,21 @@ char * intRanges(int * array, int arraySize){
 	int rangeS = array[0]
 	int rangeE = rangeS;
 	for(int i = 1; i < arraySize; i++){
-		if (array[i] == array[i - 1] + 1) rangeE = array[i];
+		if (array[i] == array[i - 1] + 1){
+			rangeE = array[i];
+			if(i=arraySize-1){
+				result = result + rangeS.ToStr() + "-" + rangeE.ToStr() + ",";
+			}
+		}
 		else{
 			if (rangeS == rangeE) result = result + rangeS.ToStr() + ",";
 			result = result + rangeS.ToStr() + "-" + rangeE.ToStr() + ",";
-			rangeS = rangeE = array[i]
+			rangeS = rangeE = array[i]			
 		}
 	}
 	return result;
 }
+
+
+
+1 2 3 4 6 8 9 11 -> 
