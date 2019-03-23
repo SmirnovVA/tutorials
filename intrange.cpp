@@ -31,15 +31,14 @@ char * intRanges(int * array, int arraySize){
 	for(int i = 1; i < arraySize; i++){
 		if (array[i] == array[i - 1] + 1){
 			rangeE = array[i];
-			if(i == arraySize-1){
-				result = result + rangeS.ToStr() + "-" + rangeE.ToStr() + ",";
-			}
 		}
 		else{
 			if (rangeS == rangeE) result = result + rangeS.ToStr() + ",";
 			result = result + rangeS.ToStr() + "-" + rangeE.ToStr() + ",";
-			rangeS = rangeE = array[i]			
+			rangeS = rangeE = array[i]		
 		}
 	}
+	if(result.IsEmpty()) result = result + rangeS.ToStr() + "-" + rangeE.ToStr();
 	return result;
 }
+	
